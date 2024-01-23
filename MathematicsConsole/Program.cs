@@ -10,9 +10,6 @@ namespace MathematicsConsole
         private static string _operand;
 
         
-
-
-
         static void Main()
         {
             string[] args =  Environment.GetCommandLineArgs();
@@ -34,45 +31,22 @@ namespace MathematicsConsole
                 case "div":
                     Console.WriteLine($"{_num1} / {_num2} = {math.DivNumbers(_num1, _num2)}");
                     break;
-
                 case "area":
                     Console.WriteLine($"Height of {_num1} * Width of {_num2} = an Area of {advmath.CalcArea(_num1, _num2)}");
                     break;
-
-
-
-                //-----------------------------------------------------------------------------------------------------------------------
-
-                case "avg":
-                    Console.WriteLine("Enter a comma-separated list of numbers:");
-                    string input = Console.ReadLine();
-
-                    // Split the input string into an array of strings
-                    string[] inputArray = input.Split(',');
-
-                    // Convert the array of strings into a list of doubles
-                    List<double> numsToAvg = inputArray.Select(double.Parse).ToList();
-
-                    // Call the ListAvg method with the list of numbers
-                    Console.WriteLine($"Average of {string.Join(", ", numsToAvg)} = {advmath.ListAvg(numsToAvg)}");
-                    break;
-                    //-----------------------------------------------------------------------------------------------------------------------
-
-
-
-
-
                 case "squ":
                     Console.WriteLine($"{_num1} Squared = {advmath.ValSquared(_num1)}");
                     break;
-
-
-
                 case "pythag":
                     Console.WriteLine($"Pythagorean Theorem for {_num1} and {_num2} = {advmath.PythagTheorem(_num1, _num2)}");
                     break;
-
-
+                case "avg":
+                    Console.WriteLine("Enter a comma-separated list of numbers:");
+                    string input = Console.ReadLine();
+                    string[] inputArray = input.Split(',');
+                    List<double> numsToAvg = inputArray.Select(double.Parse).ToList();// creates a list of doubles
+                    Console.WriteLine($"Average of {string.Join(", ", numsToAvg)} = {advmath.ListAvg(numsToAvg)}");
+                    break;
                 default:
                     Console.WriteLine($"{_operand} is not a valid operator. Please enter Add, Sub, Mul, Div, Area, Avg, Squ, or Pythag");
                     break;
@@ -80,6 +54,8 @@ namespace MathematicsConsole
 
             Console.ReadLine();
         }
+
+
 
         public static void AreArgumentsValid(string[] args)
         {
